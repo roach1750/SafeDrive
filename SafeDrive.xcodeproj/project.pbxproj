@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		21BC449E1CEE809F00DE4E5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */; };
-		21BC44A01CEE809F00DE4E5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC449F1CEE809F00DE4E5B /* ViewController.swift */; };
+		21BC44A01CEE809F00DE4E5B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC449F1CEE809F00DE4E5B /* LoginViewController.swift */; };
 		21BC44A31CEE809F00DE4E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BC44A11CEE809F00DE4E5B /* Main.storyboard */; };
 		21BC44A51CEE809F00DE4E5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BC44A41CEE809F00DE4E5B /* Assets.xcassets */; };
 		21BC44A81CEE809F00DE4E5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BC44A61CEE809F00DE4E5B /* LaunchScreen.storyboard */; };
+		21BC44B21CEE8E4E00DE4E5B /* KinveyUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC44B11CEE8E4E00DE4E5B /* KinveyUserInteractor.swift */; };
+		21BC44B41CEE8FD300DE4E5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC44B31CEE8FD300DE4E5B /* Constants.swift */; };
+		21BC44B61CEE92CF00DE4E5B /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC44B51CEE92CF00DE4E5B /* CreateAccountViewController.swift */; };
 		FB05D26AEA75B05823163C04 /* Pods_SafeDrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,12 +22,15 @@
 		1C47B43701D07B58EC12FEF8 /* Pods-SafeDrive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeDrive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeDrive/Pods-SafeDrive.debug.xcconfig"; sourceTree = "<group>"; };
 		21BC449A1CEE809F00DE4E5B /* SafeDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		21BC449F1CEE809F00DE4E5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		21BC449F1CEE809F00DE4E5B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		21BC44A21CEE809F00DE4E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21BC44A41CEE809F00DE4E5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21BC44A71CEE809F00DE4E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21BC44A91CEE809F00DE4E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BC44AF1CEE81A400DE4E5B /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		21BC44B11CEE8E4E00DE4E5B /* KinveyUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyUserInteractor.swift; sourceTree = "<group>"; };
+		21BC44B31CEE8FD300DE4E5B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		21BC44B51CEE92CF00DE4E5B /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		753AC38E25FABA77E12FD5A2 /* Pods-SafeDrive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeDrive.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeDrive/Pods-SafeDrive.release.xcconfig"; sourceTree = "<group>"; };
 		917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeDrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,15 +76,42 @@
 		21BC449C1CEE809F00DE4E5B /* SafeDrive */ = {
 			isa = PBXGroup;
 			children = (
-				21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */,
-				21BC449F1CEE809F00DE4E5B /* ViewController.swift */,
 				21BC44A11CEE809F00DE4E5B /* Main.storyboard */,
+				21BC449F1CEE809F00DE4E5B /* LoginViewController.swift */,
+				21BC44B51CEE92CF00DE4E5B /* CreateAccountViewController.swift */,
+				21BC44B71CEE9B3100DE4E5B /* Kinvey Files */,
+				21BC44B81CEE9B3A00DE4E5B /* Model */,
 				21BC44A41CEE809F00DE4E5B /* Assets.xcassets */,
+				21BC44B01CEE828400DE4E5B /* Supporting Files */,
+			);
+			path = SafeDrive;
+			sourceTree = "<group>";
+		};
+		21BC44B01CEE828400DE4E5B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				21BC44A61CEE809F00DE4E5B /* LaunchScreen.storyboard */,
 				21BC44A91CEE809F00DE4E5B /* Info.plist */,
 				21BC44AF1CEE81A400DE4E5B /* Header.h */,
+				21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */,
 			);
-			path = SafeDrive;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21BC44B71CEE9B3100DE4E5B /* Kinvey Files */ = {
+			isa = PBXGroup;
+			children = (
+				21BC44B11CEE8E4E00DE4E5B /* KinveyUserInteractor.swift */,
+			);
+			name = "Kinvey Files";
+			sourceTree = "<group>";
+		};
+		21BC44B81CEE9B3A00DE4E5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21BC44B31CEE8FD300DE4E5B /* Constants.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		24C209CC296E81EAFC51347F /* Pods */ = {
@@ -212,8 +245,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BC44A01CEE809F00DE4E5B /* ViewController.swift in Sources */,
+				21BC44B61CEE92CF00DE4E5B /* CreateAccountViewController.swift in Sources */,
+				21BC44B21CEE8E4E00DE4E5B /* KinveyUserInteractor.swift in Sources */,
+				21BC44A01CEE809F00DE4E5B /* LoginViewController.swift in Sources */,
 				21BC449E1CEE809F00DE4E5B /* AppDelegate.swift in Sources */,
+				21BC44B41CEE8FD300DE4E5B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
