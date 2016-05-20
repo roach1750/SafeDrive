@@ -28,23 +28,23 @@ class KinveyUserInteractor: NSObject {
     }
     
     func createUserWithProperties(userAttributes: Dictionary <String, String?>){
-        KCSUser.userWithUsername(
-            "kinvey",
-            password: "12345",
-            fieldsAndValues: [
-                KCSUserAttributeEmail : "kinvey@kinvey.com",
-                KCSUserAttributeGivenname : "Arnold",
-                KCSUserAttributeSurname : "Kinvey",
-                "User Type" : "Parent"
-            ],
-            withCompletionBlock: { (user: KCSUser!, errorOrNil: NSError!, result: KCSUserActionResult) -> Void in
-                if errorOrNil == nil {
-                    //user is created
-                } else {
-                    //there was an error with the create
-                }
-            }
-        )
+//        KCSUser.userWithUsername(
+//            "kinvey",
+//            password: "12345",
+//            fieldsAndValues: [
+//                KCSUserAttributeEmail : "kinvey@kinvey.com",
+//                KCSUserAttributeGivenname : "Arnold",
+//                KCSUserAttributeSurname : "Kinvey",
+//                "User Type" : "Parent"
+//            ],
+//            withCompletionBlock: { (user: KCSUser!, errorOrNil: NSError!, result: KCSUserActionResult) -> Void in
+//                if errorOrNil == nil {
+//                    //user is created
+//                } else {
+//                    //there was an error with the create
+//                }
+//            }
+//        )
     }
     
     

@@ -9,7 +9,7 @@
 import UIKit
 
 class CreateAccountViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,6 +21,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        disableCreateAccountButton()
     }
     
     func disableCreateAccountButton(){
@@ -35,24 +36,45 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool{
+        //
+        //        print("First Name Text Field has \(firstNameTextField.text!.characters.count) characters")
+        //        print("Last Name Text Field has \(lastNameTextField.text!.characters.count) characters")
+        //        print("Email Text Field has \(emailTextField.text!.characters.count) characters")
+        //        print("Password Text Field has \(passwordTextField.text!.characters.count) characters")
+        //        print("String is: \(string)")
+        //        print("Range is: \(range)")
+        //        print("\n")
+        //
+        
         if string == " "{
             return false
         }
-        if emailTextField.text?.characters.count > 0 && passwordTextField.text?.characters.count >= 5{
-            enableCreateAccountButton()
-            return true
-        }
-        if passwordTextField.text?.characters.count < 6 {
+        if string.characters.count == 0 && range.location == 0 {
+            print("Delete Key Pressed")
             disableCreateAccountButton()
-            return true
         }
-            
-        else {
-            return true
+        
+        if emailTextField.text?.characters.count > 1 && passwordTextField.text?.characters.count > 6 && firstNameTextField.text?.characters.count > 1 && lastNameTextField.text?.characters.count > 1{
+            enableCreateAccountButton()
         }
+        
+        return true
+        
         
     }
     
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let nextTextFieldTag = textField.tag + 1
+        if nextTextFieldTag != 5 {
+            let nextTextField = self.view.viewWithTag(nextTextFieldTag) as! UITextField
+            nextTextField.becomeFirstResponder()
+        }
+        if nextTextFieldTag == 5 && createAccountButton.enabled == true{
+            self.createAccountButtonPressed(UIButton())
+        }
+        return false
+    }
     
     
     @IBAction func createAccountButtonPressed(sender: UIButton) {
