@@ -15,5 +15,6 @@ let USERLASTNAMEKEY  =  "User Last Name"
 let USERTYPEKEY = "User Type"
 
 let USERTYPECHILD = "Child User"
-let USERTYPEPARENT = "Parent"
+let USERTYPEPARENT = "Parent User"
 
+let LOGINSUCCESSNOTIFICATION = "Logged In"

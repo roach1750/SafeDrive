@@ -19,6 +19,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         disableLoginButton()
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.loginSuccess), name: LOGINSUCCESSNOTIFICATION, object: nil)
+
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: LOGINSUCCESSNOTIFICATION, object: nil)
     }
     
     func disableLoginButton(){
@@ -74,6 +86,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
 
-
+    
+    func loginSuccess() {
+        
+        if KCSUser.activeUser().getValueForAttribute(USERTYPEKEY) as! String == USERTYPECHILD {
+            performSegueWithIdentifier("startAsChild", sender: self)
+        }
+    
+    
+    }
+    
+    
 }
 

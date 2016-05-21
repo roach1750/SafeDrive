@@ -17,8 +17,8 @@ class KinveyUserInteractor: NSObject {
             password: password,
             withCompletionBlock: { (user: KCSUser!, errorOrNil: NSError!, result: KCSUserActionResult) -> Void in
                 if errorOrNil == nil {
-                    //the log-in was successful and the user is now the active user and credentials saved
-                    //hide log-in view and show main app content
+                    NSNotificationCenter.defaultCenter().postNotificationName(LOGINSUCCESSNOTIFICATION, object: self)                
+                    
                 } else {
                     //there was an error with the update save
                     let message = errorOrNil.localizedDescription
@@ -28,23 +28,32 @@ class KinveyUserInteractor: NSObject {
     }
     
     func createUserWithProperties(userAttributes: Dictionary <String, String?>){
-//        KCSUser.userWithUsername(
-//            "kinvey",
-//            password: "12345",
-//            fieldsAndValues: [
-//                KCSUserAttributeEmail : "kinvey@kinvey.com",
-//                KCSUserAttributeGivenname : "Arnold",
-//                KCSUserAttributeSurname : "Kinvey",
-//                "User Type" : "Parent"
-//            ],
-//            withCompletionBlock: { (user: KCSUser!, errorOrNil: NSError!, result: KCSUserActionResult) -> Void in
-//                if errorOrNil == nil {
-//                    //user is created
-//                } else {
-//                    //there was an error with the create
-//                }
-//            }
-//        )
+        let firstName = userAttributes[USERFIRSTNAMEKEY]!
+        let lastName = userAttributes[USERLASTNAMEKEY]!
+        let email = userAttributes[USEREMAILKEY]!
+        let password = userAttributes[USERPASSWORDKEY]!
+        let userType = userAttributes[USERTYPEKEY]!
+    
+        
+        KCSUser.userWithUsername(
+            email,
+            password: password,
+            fieldsAndValues: [
+                KCSUserAttributeEmail : email!,
+                KCSUserAttributeGivenname : firstName!,
+                KCSUserAttributeSurname : lastName!,
+                "User Type" : userType!
+            ],
+            withCompletionBlock: { (user: KCSUser!, errorOrNil: NSError!, result: KCSUserActionResult) -> Void in
+                if errorOrNil == nil {
+                    //user is created
+                    NSNotificationCenter.defaultCenter().postNotificationName(LOGINSUCCESSNOTIFICATION, object: self)
+                } else {
+                    print(errorOrNil)
+                    //there was an error with the create
+                }
+            }
+        )
     }
     
     
