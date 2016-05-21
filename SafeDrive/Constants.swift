@@ -25,6 +25,10 @@ let CHILDUSERNAMEKEY = "Child User Name"
 let CHILDFIRSTNAMEKEY = "Child First Name"
 let CHILDLASTNAMEKEY = "Child Last Name"
 
-
 let PARENTUSERNAMEKEY = "Parent User Name"
 let CONFIRMEDLINKKEY = "Confirmed Link"
+
+//Test Class
+let TESTLOCATIONKEY = "Test Location"
+let TESTBACRESULT = "Test BAC Result"
+let TESTPASSORFAIL = "Test Pass or Fail"

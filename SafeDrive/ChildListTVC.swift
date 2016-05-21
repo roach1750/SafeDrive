@@ -73,18 +73,26 @@ class ChildListTVC: UITableViewController {
         
         let currentSetting = data![indexPath.row]
         
-        cell.textLabel?.text = currentSetting.childUserName!
         
         if currentSetting.cofirmedLink == NSNumber(bool: false) {
             cell.detailTextLabel?.text = "unconfirmed"
+            cell.textLabel?.text = currentSetting.childUserName!
         }
         else {
+            let nameString = currentSetting.childFirstName! + " " + currentSetting.childLastName!
+            cell.textLabel?.text = nameString
+
             cell.detailTextLabel?.text = "confirmed"
         }
-        
-        
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
+    
+    
+    
 
+    
 }

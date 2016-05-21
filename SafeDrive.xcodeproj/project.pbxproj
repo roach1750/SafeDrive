@@ -22,6 +22,7 @@
 		21D7730D1CEFFE7E006DAD43 /* KinveyUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7730C1CEFFE7E006DAD43 /* KinveyUploader.swift */; };
 		21D7730F1CEFFFA0006DAD43 /* KinveyDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7730E1CEFFFA0006DAD43 /* KinveyDownloader.swift */; };
 		21D773131CF00D71006DAD43 /* ConfirmParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D773121CF00D71006DAD43 /* ConfirmParentViewController.swift */; };
+		21D773151CF0B786006DAD43 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D773141CF0B786006DAD43 /* Test.swift */; };
 		FB05D26AEA75B05823163C04 /* Pods_SafeDrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		21D7730C1CEFFE7E006DAD43 /* KinveyUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyUploader.swift; sourceTree = "<group>"; };
 		21D7730E1CEFFFA0006DAD43 /* KinveyDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyDownloader.swift; sourceTree = "<group>"; };
 		21D773121CF00D71006DAD43 /* ConfirmParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmParentViewController.swift; sourceTree = "<group>"; };
+		21D773141CF0B786006DAD43 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		753AC38E25FABA77E12FD5A2 /* Pods-SafeDrive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeDrive.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeDrive/Pods-SafeDrive.release.xcconfig"; sourceTree = "<group>"; };
 		917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeDrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 			children = (
 				21BC44B31CEE8FD300DE4E5B /* Constants.swift */,
 				21D773081CEFFA8F006DAD43 /* Setting.swift */,
+				21D773141CF0B786006DAD43 /* Test.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				21D7730B1CEFFC10006DAD43 /* ChildListTVC.swift in Sources */,
 				21BC44B21CEE8E4E00DE4E5B /* KinveyUserInteractor.swift in Sources */,
 				21D7730F1CEFFFA0006DAD43 /* KinveyDownloader.swift in Sources */,
+				21D773151CF0B786006DAD43 /* Test.swift in Sources */,
 				21D773131CF00D71006DAD43 /* ConfirmParentViewController.swift in Sources */,
 				21D773091CEFFA8F006DAD43 /* Setting.swift in Sources */,
 				21BC44A01CEE809F00DE4E5B /* LoginViewController.swift in Sources */,
