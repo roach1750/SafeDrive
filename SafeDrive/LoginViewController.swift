@@ -18,7 +18,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        disableLoginButton()
+//        disableLoginButton()
+//        emailTextField.text = "parent@gmail.com"
+        emailTextField.text = "child@gmail.com"
+        passwordTextField.text = "password"
+        self.loginButtonPressed(UIButton())
         
     }
     
@@ -89,11 +93,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func loginSuccess() {
         
-        if KCSUser.activeUser().getValueForAttribute(USERTYPEKEY) as! String == USERTYPECHILD {
+        let userType = KCSUser.activeUser().getValueForAttribute(USERTYPEKEY) as! String
+        if userType == USERTYPECHILD {
             performSegueWithIdentifier("startAsChild", sender: self)
         }
-    
-    
+        else if userType == USERTYPEPARENT {
+            performSegueWithIdentifier("startAsParent", sender: self)
+        }
     }
     
     

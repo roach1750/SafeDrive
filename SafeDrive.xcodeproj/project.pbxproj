@@ -16,6 +16,12 @@
 		21BC44B41CEE8FD300DE4E5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC44B31CEE8FD300DE4E5B /* Constants.swift */; };
 		21BC44B61CEE92CF00DE4E5B /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC44B51CEE92CF00DE4E5B /* CreateAccountViewController.swift */; };
 		21D773031CEFF5F0006DAD43 /* Child.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D773021CEFF5F0006DAD43 /* Child.storyboard */; };
+		21D773061CEFF8F8006DAD43 /* Parent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D773051CEFF8F8006DAD43 /* Parent.storyboard */; };
+		21D773091CEFFA8F006DAD43 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D773081CEFFA8F006DAD43 /* Setting.swift */; };
+		21D7730B1CEFFC10006DAD43 /* ChildListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7730A1CEFFC10006DAD43 /* ChildListTVC.swift */; };
+		21D7730D1CEFFE7E006DAD43 /* KinveyUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7730C1CEFFE7E006DAD43 /* KinveyUploader.swift */; };
+		21D7730F1CEFFFA0006DAD43 /* KinveyDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7730E1CEFFFA0006DAD43 /* KinveyDownloader.swift */; };
+		21D773131CF00D71006DAD43 /* ConfirmParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D773121CF00D71006DAD43 /* ConfirmParentViewController.swift */; };
 		FB05D26AEA75B05823163C04 /* Pods_SafeDrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +39,12 @@
 		21BC44B31CEE8FD300DE4E5B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		21BC44B51CEE92CF00DE4E5B /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		21D773021CEFF5F0006DAD43 /* Child.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Child.storyboard; sourceTree = "<group>"; };
+		21D773051CEFF8F8006DAD43 /* Parent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Parent.storyboard; sourceTree = "<group>"; };
+		21D773081CEFFA8F006DAD43 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		21D7730A1CEFFC10006DAD43 /* ChildListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildListTVC.swift; sourceTree = "<group>"; };
+		21D7730C1CEFFE7E006DAD43 /* KinveyUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyUploader.swift; sourceTree = "<group>"; };
+		21D7730E1CEFFFA0006DAD43 /* KinveyDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyDownloader.swift; sourceTree = "<group>"; };
+		21D773121CF00D71006DAD43 /* ConfirmParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmParentViewController.swift; sourceTree = "<group>"; };
 		753AC38E25FABA77E12FD5A2 /* Pods-SafeDrive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeDrive.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeDrive/Pods-SafeDrive.release.xcconfig"; sourceTree = "<group>"; };
 		917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeDrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				21D773011CEFF5D5006DAD43 /* Login Views */,
+				21D773071CEFF8FD006DAD43 /* Parent Views */,
 				21D773041CEFF5F4006DAD43 /* Child Views */,
 				21BC44B71CEE9B3100DE4E5B /* Kinvey Files */,
 				21BC44B81CEE9B3A00DE4E5B /* Model */,
@@ -103,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				21BC44B11CEE8E4E00DE4E5B /* KinveyUserInteractor.swift */,
+				21D7730C1CEFFE7E006DAD43 /* KinveyUploader.swift */,
+				21D7730E1CEFFFA0006DAD43 /* KinveyDownloader.swift */,
 			);
 			name = "Kinvey Files";
 			sourceTree = "<group>";
@@ -111,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				21BC44B31CEE8FD300DE4E5B /* Constants.swift */,
+				21D773081CEFFA8F006DAD43 /* Setting.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -129,8 +145,18 @@
 			isa = PBXGroup;
 			children = (
 				21D773021CEFF5F0006DAD43 /* Child.storyboard */,
+				21D773121CF00D71006DAD43 /* ConfirmParentViewController.swift */,
 			);
 			name = "Child Views";
+			sourceTree = "<group>";
+		};
+		21D773071CEFF8FD006DAD43 /* Parent Views */ = {
+			isa = PBXGroup;
+			children = (
+				21D773051CEFF8F8006DAD43 /* Parent.storyboard */,
+				21D7730A1CEFFC10006DAD43 /* ChildListTVC.swift */,
+			);
+			name = "Parent Views";
 			sourceTree = "<group>";
 		};
 		24C209CC296E81EAFC51347F /* Pods */ = {
@@ -206,6 +232,7 @@
 				21BC44A81CEE809F00DE4E5B /* LaunchScreen.storyboard in Resources */,
 				21BC44A51CEE809F00DE4E5B /* Assets.xcassets in Resources */,
 				21BC44A31CEE809F00DE4E5B /* Main.storyboard in Resources */,
+				21D773061CEFF8F8006DAD43 /* Parent.storyboard in Resources */,
 				21D773031CEFF5F0006DAD43 /* Child.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +293,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BC44B61CEE92CF00DE4E5B /* CreateAccountViewController.swift in Sources */,
+				21D7730D1CEFFE7E006DAD43 /* KinveyUploader.swift in Sources */,
+				21D7730B1CEFFC10006DAD43 /* ChildListTVC.swift in Sources */,
 				21BC44B21CEE8E4E00DE4E5B /* KinveyUserInteractor.swift in Sources */,
+				21D7730F1CEFFFA0006DAD43 /* KinveyDownloader.swift in Sources */,
+				21D773131CF00D71006DAD43 /* ConfirmParentViewController.swift in Sources */,
+				21D773091CEFFA8F006DAD43 /* Setting.swift in Sources */,
 				21BC44A01CEE809F00DE4E5B /* LoginViewController.swift in Sources */,
 				21BC449E1CEE809F00DE4E5B /* AppDelegate.swift in Sources */,
 				21BC44B41CEE8FD300DE4E5B /* Constants.swift in Sources */,

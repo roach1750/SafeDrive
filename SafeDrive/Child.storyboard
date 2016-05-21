@@ -3,12 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Confirm Parent Link-->
         <scene sceneID="Cdk-Yk-8Yb">
             <objects>
-                <viewController id="7JK-KS-B3b" sceneMemberID="viewController">
+                <viewController id="7JK-KS-B3b" customClass="ConfirmParentViewController" customModule="SafeDrive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cbW-J8-GtK"/>
                         <viewControllerLayoutGuide type="bottom" id="mlv-1Y-fpe"/>
@@ -16,9 +18,45 @@
                     <view key="view" contentMode="scaleToFill" id="8ve-t4-URm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure you’re parent/guardian set’s up their account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-aW-98y">
+                                <rect key="frame" x="20" y="72" width="560" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ovm-Lr-jds"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVe-Ph-ken">
+                                <rect key="frame" x="20" y="254.5" width="560" height="90"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="7JK-KS-B3b" eventType="touchUpInside" id="rM3-Va-1Vz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pVe-Ph-ken" firstAttribute="leading" secondItem="8ve-t4-URm" secondAttribute="leadingMargin" id="5Ef-EH-4ng"/>
+                            <constraint firstItem="fD6-aW-98y" firstAttribute="trailing" secondItem="8ve-t4-URm" secondAttribute="trailingMargin" id="6sn-No-3bA"/>
+                            <constraint firstItem="pVe-Ph-ken" firstAttribute="centerX" secondItem="8ve-t4-URm" secondAttribute="centerX" id="DMo-Ca-H6Y"/>
+                            <constraint firstItem="fD6-aW-98y" firstAttribute="top" secondItem="cbW-J8-GtK" secondAttribute="bottom" constant="8" id="L4V-nO-0f3"/>
+                            <constraint firstItem="pVe-Ph-ken" firstAttribute="centerX" secondItem="8ve-t4-URm" secondAttribute="centerX" id="OTW-4D-rtJ"/>
+                            <constraint firstItem="pVe-Ph-ken" firstAttribute="centerY" secondItem="8ve-t4-URm" secondAttribute="centerY" id="UBv-tP-Bwp"/>
+                            <constraint firstItem="pVe-Ph-ken" firstAttribute="trailing" secondItem="8ve-t4-URm" secondAttribute="trailingMargin" id="t49-9o-ti5"/>
+                            <constraint firstItem="pVe-Ph-ken" firstAttribute="height" secondItem="8ve-t4-URm" secondAttribute="height" multiplier="0.15" id="v1E-D0-KQE"/>
+                            <constraint firstItem="fD6-aW-98y" firstAttribute="leading" secondItem="8ve-t4-URm" secondAttribute="leadingMargin" id="ybc-7e-Ol2"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fsD-sB-yR8"/>
+                    <navigationItem key="navigationItem" title="Confirm Parent Link" id="fsD-sB-yR8"/>
+                    <connections>
+                        <outlet property="confirmButton" destination="pVe-Ph-ken" id="NK2-C9-qQ5"/>
+                        <outlet property="statusLabel" destination="fD6-aW-98y" id="gyS-0G-BaB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChQ-zZ-h1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,7 +65,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bvj-an-gix">
             <objects>
-                <navigationController storyboardIdentifier="child" automaticallyAdjustsScrollViewInsets="NO" id="TYv-ss-86c" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Child" automaticallyAdjustsScrollViewInsets="NO" id="TYv-ss-86c" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KNQ-fz-zqB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

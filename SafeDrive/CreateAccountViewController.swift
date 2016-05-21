@@ -24,6 +24,17 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         disableCreateAccountButton()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.loginSuccess), name: LOGINSUCCESSNOTIFICATION, object: nil)
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: LOGINSUCCESSNOTIFICATION, object: nil)
+    }
+    
     func disableCreateAccountButton(){
         createAccountButton.enabled = false
         createAccountButton.alpha = 0.3
@@ -95,4 +106,24 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBAction func cancelButtonPressed(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+
+    func loginSuccess() {
+        
+        let userType = KCSUser.activeUser().getValueForAttribute(USERTYPEKEY) as! String
+        if userType == USERTYPECHILD {
+            performSegueWithIdentifier("startAsChild", sender: self)
+        }
+        else if userType == USERTYPEPARENT {
+            performSegueWithIdentifier("startAsParent", sender: self)
+        }
+    }
+
+
+
+
+
+
+
 }
+
+
