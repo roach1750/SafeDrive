@@ -23,6 +23,8 @@
 		21D7730F1CEFFFA0006DAD43 /* KinveyDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7730E1CEFFFA0006DAD43 /* KinveyDownloader.swift */; };
 		21D773131CF00D71006DAD43 /* ConfirmParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D773121CF00D71006DAD43 /* ConfirmParentViewController.swift */; };
 		21D773151CF0B786006DAD43 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D773141CF0B786006DAD43 /* Test.swift */; };
+		21D7731A1CF0CE2E006DAD43 /* libBACtrackSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D773191CF0CE2E006DAD43 /* libBACtrackSDK.a */; };
+		21D7731C1CF22BBC006DAD43 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7731B1CF22BBC006DAD43 /* CircleView.swift */; };
 		FB05D26AEA75B05823163C04 /* Pods_SafeDrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,10 @@
 		21D7730E1CEFFFA0006DAD43 /* KinveyDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyDownloader.swift; sourceTree = "<group>"; };
 		21D773121CF00D71006DAD43 /* ConfirmParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmParentViewController.swift; sourceTree = "<group>"; };
 		21D773141CF0B786006DAD43 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		21D773161CF0CDEC006DAD43 /* libBACtrackSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBACtrackSDK.a; path = ../../../../Desktop/BACtrack_v1.1_iOS_SDK/libBACtrackSDK.a; sourceTree = "<group>"; };
+		21D773181CF0CDF8006DAD43 /* BACtrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACtrack.h; sourceTree = "<group>"; };
+		21D773191CF0CE2E006DAD43 /* libBACtrackSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBACtrackSDK.a; path = SafeDrive/libBACtrackSDK.a; sourceTree = "<group>"; };
+		21D7731B1CF22BBC006DAD43 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		753AC38E25FABA77E12FD5A2 /* Pods-SafeDrive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeDrive.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeDrive/Pods-SafeDrive.release.xcconfig"; sourceTree = "<group>"; };
 		917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeDrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -57,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB05D26AEA75B05823163C04 /* Pods_SafeDrive.framework in Frameworks */,
+				21D7731A1CF0CE2E006DAD43 /* libBACtrackSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +73,8 @@
 		20517EDB2C4EAA86D46AE343 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21D773191CF0CE2E006DAD43 /* libBACtrackSDK.a */,
+				21D773161CF0CDEC006DAD43 /* libBACtrackSDK.a */,
 				917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */,
 			);
 			name = Frameworks;
@@ -93,10 +102,11 @@
 			isa = PBXGroup;
 			children = (
 				21D773011CEFF5D5006DAD43 /* Login Views */,
-				21D773071CEFF8FD006DAD43 /* Parent Views */,
-				21D773041CEFF5F4006DAD43 /* Child Views */,
+				21D773071CEFF8FD006DAD43 /* Parent App */,
+				21D773041CEFF5F4006DAD43 /* Child Child */,
 				21BC44B71CEE9B3100DE4E5B /* Kinvey Files */,
 				21BC44B81CEE9B3A00DE4E5B /* Model */,
+				21D7731D1CF22BC4006DAD43 /* Custom Views */,
 				21BC44A41CEE809F00DE4E5B /* Assets.xcassets */,
 				21BC44B01CEE828400DE4E5B /* Supporting Files */,
 			);
@@ -109,6 +119,7 @@
 				21BC44A61CEE809F00DE4E5B /* LaunchScreen.storyboard */,
 				21BC44A91CEE809F00DE4E5B /* Info.plist */,
 				21BC44AF1CEE81A400DE4E5B /* Header.h */,
+				21D773181CF0CDF8006DAD43 /* BACtrack.h */,
 				21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
@@ -144,22 +155,30 @@
 			name = "Login Views";
 			sourceTree = "<group>";
 		};
-		21D773041CEFF5F4006DAD43 /* Child Views */ = {
+		21D773041CEFF5F4006DAD43 /* Child Child */ = {
 			isa = PBXGroup;
 			children = (
 				21D773021CEFF5F0006DAD43 /* Child.storyboard */,
 				21D773121CF00D71006DAD43 /* ConfirmParentViewController.swift */,
 			);
-			name = "Child Views";
+			name = "Child Child";
 			sourceTree = "<group>";
 		};
-		21D773071CEFF8FD006DAD43 /* Parent Views */ = {
+		21D773071CEFF8FD006DAD43 /* Parent App */ = {
 			isa = PBXGroup;
 			children = (
 				21D773051CEFF8F8006DAD43 /* Parent.storyboard */,
 				21D7730A1CEFFC10006DAD43 /* ChildListTVC.swift */,
 			);
-			name = "Parent Views";
+			name = "Parent App";
+			sourceTree = "<group>";
+		};
+		21D7731D1CF22BC4006DAD43 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				21D7731B1CF22BBC006DAD43 /* CircleView.swift */,
+			);
+			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 		24C209CC296E81EAFC51347F /* Pods */ = {
@@ -295,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D7731C1CF22BBC006DAD43 /* CircleView.swift in Sources */,
 				21BC44B61CEE92CF00DE4E5B /* CreateAccountViewController.swift in Sources */,
 				21D7730D1CEFFE7E006DAD43 /* KinveyUploader.swift in Sources */,
 				21D7730B1CEFFC10006DAD43 /* ChildListTVC.swift in Sources */,
@@ -421,6 +441,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SafeDrive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SafeDrive",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = awesomeApps.SafeDrive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = SafeDrive/Header.h;
@@ -434,6 +458,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SafeDrive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SafeDrive",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = awesomeApps.SafeDrive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = SafeDrive/Header.h;

@@ -19,8 +19,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        disableLoginButton()
-        emailTextField.text = "parent@gmail.com"
-//        emailTextField.text = "child@gmail.com"
+//        emailTextField.text = "parent@gmail.com"
+        emailTextField.text = "child@gmail.com"
         passwordTextField.text = "password"
         self.loginButtonPressed(UIButton())
         

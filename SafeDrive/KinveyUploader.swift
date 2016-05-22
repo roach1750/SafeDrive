@@ -30,7 +30,7 @@ class KinveyUploader: NSObject {
                 if errorOrNil != nil {
                     print("Save failed, with error: %@", errorOrNil.localizedFailureReason)
                 } else {
-                    print("Successfully saved event (id='%@').", (objectsOrNil[0] as! NSObject).kinveyObjectId())
+                    print("Successfully saved setting (id='%@').", (objectsOrNil[0] as! NSObject).kinveyObjectId())
                 }
             },
             withProgressBlock: nil
@@ -47,7 +47,7 @@ class KinveyUploader: NSObject {
                 if errorOrNil != nil {
                     print("Save failed, with error: %@", errorOrNil.localizedFailureReason)
                 } else {
-                    print("Successfully saved event (id='%@').", (objectsOrNil[0] as! NSObject).kinveyObjectId())
+                    print("Successfully saved setting (id='%@').", (objectsOrNil[0] as! NSObject).kinveyObjectId())
                 }
             },
             withProgressBlock: nil

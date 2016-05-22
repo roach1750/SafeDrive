@@ -4,10 +4,9 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Confirm Parent Link-->
+        <!--Safe Drive-->
         <scene sceneID="Cdk-Yk-8Yb">
             <objects>
                 <viewController id="7JK-KS-B3b" customClass="ConfirmParentViewController" customModule="SafeDrive" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,46 +18,149 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure you’re parent/guardian set’s up their account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-aW-98y">
-                                <rect key="frame" x="20" y="72" width="560" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="ovm-Lr-jds"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVe-Ph-ken">
-                                <rect key="frame" x="20" y="254.5" width="560" height="90"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Confirm">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="confirmButtonPressed:" destination="7JK-KS-B3b" eventType="touchUpInside" id="rM3-Va-1Vz"/>
-                                </connections>
-                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEr-sO-YMq">
+                                <rect key="frame" x="20" y="72" width="560" height="508"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pVe-Ph-ken" firstAttribute="leading" secondItem="8ve-t4-URm" secondAttribute="leadingMargin" id="5Ef-EH-4ng"/>
-                            <constraint firstItem="fD6-aW-98y" firstAttribute="trailing" secondItem="8ve-t4-URm" secondAttribute="trailingMargin" id="6sn-No-3bA"/>
-                            <constraint firstItem="pVe-Ph-ken" firstAttribute="centerX" secondItem="8ve-t4-URm" secondAttribute="centerX" id="DMo-Ca-H6Y"/>
-                            <constraint firstItem="fD6-aW-98y" firstAttribute="top" secondItem="cbW-J8-GtK" secondAttribute="bottom" constant="8" id="L4V-nO-0f3"/>
-                            <constraint firstItem="pVe-Ph-ken" firstAttribute="centerX" secondItem="8ve-t4-URm" secondAttribute="centerX" id="OTW-4D-rtJ"/>
-                            <constraint firstItem="pVe-Ph-ken" firstAttribute="centerY" secondItem="8ve-t4-URm" secondAttribute="centerY" id="UBv-tP-Bwp"/>
-                            <constraint firstItem="pVe-Ph-ken" firstAttribute="trailing" secondItem="8ve-t4-URm" secondAttribute="trailingMargin" id="t49-9o-ti5"/>
-                            <constraint firstItem="pVe-Ph-ken" firstAttribute="height" secondItem="8ve-t4-URm" secondAttribute="height" multiplier="0.15" id="v1E-D0-KQE"/>
-                            <constraint firstItem="fD6-aW-98y" firstAttribute="leading" secondItem="8ve-t4-URm" secondAttribute="leadingMargin" id="ybc-7e-Ol2"/>
+                            <constraint firstItem="BEr-sO-YMq" firstAttribute="trailing" secondItem="8ve-t4-URm" secondAttribute="trailingMargin" id="T5P-cD-UXF"/>
+                            <constraint firstItem="BEr-sO-YMq" firstAttribute="leading" secondItem="8ve-t4-URm" secondAttribute="leadingMargin" id="jO6-zr-EQL"/>
+                            <constraint firstItem="mlv-1Y-fpe" firstAttribute="top" secondItem="BEr-sO-YMq" secondAttribute="bottom" constant="20" id="kLS-3H-wi9"/>
+                            <constraint firstItem="BEr-sO-YMq" firstAttribute="top" secondItem="cbW-J8-GtK" secondAttribute="bottom" constant="8" id="uFo-tS-lvY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Confirm Parent Link" id="fsD-sB-yR8"/>
+                    <navigationItem key="navigationItem" title="Safe Drive" id="fsD-sB-yR8"/>
                     <connections>
-                        <outlet property="confirmButton" destination="pVe-Ph-ken" id="NK2-C9-qQ5"/>
-                        <outlet property="statusLabel" destination="fD6-aW-98y" id="gyS-0G-BaB"/>
+                        <outlet property="confirmButton" destination="zHe-Gc-kDf" id="qPd-cT-XlJ"/>
+                        <outlet property="confirmParentView" destination="GJH-TT-g0Q" id="uGA-6P-SD8"/>
+                        <outlet property="connectToBACTrackView" destination="PmH-f9-o7G" id="gXP-f1-gG1"/>
+                        <outlet property="mainView" destination="BEr-sO-YMq" id="Uwh-CL-SbR"/>
+                        <outlet property="statusLabel" destination="0Fq-oY-i8T" id="3Os-k4-Qvd"/>
+                        <outlet property="takeReadingView" destination="4eI-Zs-zkq" id="3GD-H3-cka"/>
+                        <outlet property="warmUpCircleView" destination="dAx-z2-bm1" id="Pl5-X0-oQy"/>
+                        <outlet property="warmUpStatusLabel" destination="qNu-pa-Fsz" id="o9e-4O-dbx"/>
+                        <outlet property="warmUpView" destination="Cmd-To-uYD" id="KUX-KY-XsR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChQ-zZ-h1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="GJH-TT-g0Q" userLabel="Confirm Parent View">
+                    <rect key="frame" x="0.0" y="0.0" width="560" height="508"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure your parent/guardian set’s up their account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fq-oY-i8T">
+                            <rect key="frame" x="26" y="8" width="520" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="Hok-CZ-EDh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHe-Gc-kDf">
+                            <rect key="frame" x="0.0" y="205" width="560" height="98"/>
+                            <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="98" id="hen-q6-FxJ"/>
+                            </constraints>
+                            <state key="normal" title="Confirm">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="confirmButtonPressed:" destination="7JK-KS-B3b" eventType="touchUpInside" id="eGg-5s-e7C"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="zHe-Gc-kDf" firstAttribute="leading" secondItem="GJH-TT-g0Q" secondAttribute="leading" id="1pd-UU-yUO"/>
+                        <constraint firstItem="0Fq-oY-i8T" firstAttribute="leading" secondItem="GJH-TT-g0Q" secondAttribute="leading" constant="26" id="byj-gs-lMC"/>
+                        <constraint firstItem="0Fq-oY-i8T" firstAttribute="top" secondItem="GJH-TT-g0Q" secondAttribute="top" constant="8" id="eFP-uQ-Ysm"/>
+                        <constraint firstAttribute="bottom" secondItem="zHe-Gc-kDf" secondAttribute="bottom" constant="205" id="eoa-bj-2ft"/>
+                        <constraint firstAttribute="trailing" secondItem="0Fq-oY-i8T" secondAttribute="trailing" constant="14" id="vmG-fP-Bhy"/>
+                        <constraint firstAttribute="trailing" secondItem="zHe-Gc-kDf" secondAttribute="trailing" id="y0b-e1-Ozu"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="PmH-f9-o7G" userLabel="Connect To Breathalyzer">
+                    <rect key="frame" x="0.0" y="0.0" width="560" height="508"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRd-VD-srD">
+                            <rect key="frame" x="0.0" y="0.0" width="560" height="95"/>
+                            <color key="backgroundColor" red="0.27843137254901962" green="0.73333333333333328" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="95" id="0QA-zV-T4e"/>
+                            </constraints>
+                            <state key="normal" title="Connect to BACTrack">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="connectToBACTrack:" destination="7JK-KS-B3b" eventType="touchUpInside" id="CHK-iN-Jd6"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="eRd-VD-srD" firstAttribute="leading" secondItem="PmH-f9-o7G" secondAttribute="leading" id="GTB-MI-fVF"/>
+                        <constraint firstAttribute="trailing" secondItem="eRd-VD-srD" secondAttribute="trailing" id="IfX-g1-x6T"/>
+                        <constraint firstItem="eRd-VD-srD" firstAttribute="top" secondItem="PmH-f9-o7G" secondAttribute="top" id="maC-pQ-YAJ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="4eI-Zs-zkq" userLabel="Take Reading View">
+                    <rect key="frame" x="0.0" y="0.0" width="560" height="508"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u40-qy-Scp">
+                            <rect key="frame" x="0.0" y="8" width="560" height="95"/>
+                            <color key="backgroundColor" red="0.23921568627450981" green="0.85098039215686272" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="95" id="t2b-Kg-6Yp"/>
+                            </constraints>
+                            <state key="normal" title="Take Reading">
+                                <color key="titleColor" red="1" green="0.98039215690000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="takeReadingButtonPressed:" destination="7JK-KS-B3b" eventType="touchUpInside" id="JQF-uA-fHr"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="u40-qy-Scp" firstAttribute="leading" secondItem="4eI-Zs-zkq" secondAttribute="leading" id="68F-WL-3L5"/>
+                        <constraint firstAttribute="trailing" secondItem="u40-qy-Scp" secondAttribute="trailing" id="SaR-ta-1lo"/>
+                        <constraint firstItem="u40-qy-Scp" firstAttribute="top" secondItem="4eI-Zs-zkq" secondAttribute="top" constant="8" id="vln-lj-vLC"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="Cmd-To-uYD" userLabel="Warming Up View">
+                    <rect key="frame" x="0.0" y="0.0" width="560" height="508"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warming Up...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNu-pa-Fsz">
+                            <rect key="frame" x="0.0" y="8" width="560" height="95"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="95" id="LdQ-kW-TNQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAx-z2-bm1" customClass="CircleView" customModule="SafeDrive" customModuleProvider="target">
+                            <rect key="frame" x="8" y="111" width="544" height="389"/>
+                            <color key="backgroundColor" red="1" green="0.69881506459999998" blue="0.23186977580000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="dAx-z2-bm1" firstAttribute="leading" secondItem="Cmd-To-uYD" secondAttribute="leading" constant="8" id="CQR-AT-N7q"/>
+                        <constraint firstItem="qNu-pa-Fsz" firstAttribute="top" secondItem="Cmd-To-uYD" secondAttribute="top" constant="8" id="K5Z-YI-6Up"/>
+                        <constraint firstAttribute="bottom" secondItem="dAx-z2-bm1" secondAttribute="bottom" constant="8" id="OBg-9c-Wg2"/>
+                        <constraint firstAttribute="trailing" secondItem="qNu-pa-Fsz" secondAttribute="trailing" id="Veq-aj-3zi"/>
+                        <constraint firstItem="qNu-pa-Fsz" firstAttribute="leading" secondItem="Cmd-To-uYD" secondAttribute="leading" id="aQw-S6-hOZ"/>
+                        <constraint firstItem="dAx-z2-bm1" firstAttribute="top" secondItem="qNu-pa-Fsz" secondAttribute="bottom" constant="8" id="n0s-dY-wyP"/>
+                        <constraint firstAttribute="trailing" secondItem="dAx-z2-bm1" secondAttribute="trailing" constant="8" id="z9d-w5-Pje"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="1032" y="325"/>
         </scene>
