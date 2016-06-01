@@ -9,7 +9,7 @@
 import UIKit
 
 class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
-
+    
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
@@ -21,20 +21,29 @@ class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
     
     @IBOutlet var warmUpView: UIView!
     @IBOutlet weak var warmUpStatusLabel: UILabel!
-    @IBOutlet weak var warmUpCircleView: CircleView!
+    
+    @IBOutlet var startBlowingView: UIView!
+    
+    @IBOutlet var blowInProgressView: UIView!
+    
+    @IBOutlet var analyzingView: UIView!
+    
+    @IBOutlet var testCompleteView: UIView!
+    @IBOutlet weak var testCompleteStatusLabel: UILabel!
+    
     
     var mBacTrack: BacTrackAPI?
     
     let kDL = KinveyDownloader()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ConfirmParentViewController.reloadData), name: SETTINGSDOWNLOADEDNOTIFICATION, object: nil)
         mBacTrack = BacTrackAPI(delegate: self, andAPIKey: "0a32f2ab7bf144e4905e723347989b")
-
+        
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         kDL.fetchSettingForChild(KCSUser.activeUser().username)
     }
@@ -68,14 +77,12 @@ class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
     
     @IBAction func takeReadingButtonPressed(sender: UIButton) {
         
-        print("takeReading Frame was: \(takeReadingView.frame)")
         warmUpView.frame = takeReadingView.frame
         takeReadingView.removeFromSuperview()
         view.addSubview(warmUpView)
         warmUpStatusLabel.text = "Warming Up..."
-        
         mBacTrack?.startCountdown()
-    
+        
     }
     
     /////////BACTrack Delegate Methods///////////////
@@ -90,27 +97,71 @@ class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
         view.addSubview(takeReadingView)
     }
     
+    var firstTimeOnCountDown = true
     func BacTrackCountdown(seconds: NSNumber!, executionFailure error: Bool) {
+        if firstTimeOnCountDown == true {
+            drawCircleWithDuration(seconds.doubleValue, andColor: UIColor.redColor(), andView: warmUpView)
+            firstTimeOnCountDown = false
+        }
         
     }
     
     func BacTrackStart() {
-        
+        startBlowingView.frame = warmUpView.frame
+        warmUpView.removeFromSuperview()
+        view.addSubview(startBlowingView)
     }
     
     func BacTrackBlow() {
-        
+        blowInProgressView.frame = startBlowingView.frame
+        startBlowingView.removeFromSuperview()
+        view.addSubview(blowInProgressView)
+
     }
     
     func BacTrackAnalyzing() {
-        
+        analyzingView.frame = blowInProgressView.frame
+        blowInProgressView.removeFromSuperview()
+        view.addSubview(analyzingView)
     }
     
     func BacTrackResults(bac: CGFloat) {
-        
+        testCompleteView.frame = analyzingView.frame
+        analyzingView.removeFromSuperview()
+        view.addSubview(testCompleteView)
+        testCompleteStatusLabel.text = String(bac)
     }
     
+    var circleAnimationLayer = CAShapeLayer()
     
+    func drawCircleWithDuration(duration: Double, andColor color: UIColor, andView viewToAddTo: UIView) {
+        // Set up the shape of the circle
+        
+        circleAnimationLayer.removeFromSuperlayer()
+        let testingFrame: CGRect = takeReadingView.frame
+        let radius: CGFloat = testingFrame.size.width * 0.4
+        
+        circleAnimationLayer = CAShapeLayer()
+        // Make a circular shape
+        circleAnimationLayer.path = UIBezierPath(roundedRect: CGRectMake(0, 0, 2.0 * radius, 2.0 * radius), cornerRadius: radius).CGPath
+        // Center the shape in self.view
+        circleAnimationLayer.position = CGPointMake(CGRectGetMidX(testingFrame) - radius, CGRectGetMidY(testingFrame) - radius)
+        // Configure the apperence of the circle
+        circleAnimationLayer.fillColor = UIColor.clearColor().CGColor
+        circleAnimationLayer.strokeColor = color.CGColor
+        circleAnimationLayer.lineWidth = 15
+        // Add to parent layer
+        viewToAddTo.layer.addSublayer(circleAnimationLayer)
+        
+        let drawAnimation = CABasicAnimation(keyPath: "strokeStart")
+        drawAnimation.duration = duration
+        drawAnimation.repeatCount = 1.0
+        drawAnimation.fromValue = 0.0
+        drawAnimation.toValue = 1.0
+        drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        circleAnimationLayer.addAnimation(drawAnimation, forKey: "drawCircleAnimation")
+        
+    }
     
     
     
