@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2150CBD11CFE65E900EA4CC2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2150CBD01CFE65E900EA4CC2 /* MapKit.framework */; };
+		2150CBD31CFFBBBE00EA4CC2 /* TestHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150CBD21CFFBBBE00EA4CC2 /* TestHistoryTVC.swift */; };
+		2150CBD51CFFC0FC00EA4CC2 /* TestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150CBD41CFFC0FC00EA4CC2 /* TestDetailsViewController.swift */; };
 		21BC449E1CEE809F00DE4E5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */; };
 		21BC44A01CEE809F00DE4E5B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC449F1CEE809F00DE4E5B /* LoginViewController.swift */; };
 		21BC44A31CEE809F00DE4E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BC44A11CEE809F00DE4E5B /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		1C47B43701D07B58EC12FEF8 /* Pods-SafeDrive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeDrive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeDrive/Pods-SafeDrive.debug.xcconfig"; sourceTree = "<group>"; };
 		2150CBD01CFE65E900EA4CC2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2150CBD21CFFBBBE00EA4CC2 /* TestHistoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistoryTVC.swift; sourceTree = "<group>"; };
+		2150CBD41CFFC0FC00EA4CC2 /* TestDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDetailsViewController.swift; sourceTree = "<group>"; };
 		21BC449A1CEE809F00DE4E5B /* SafeDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21BC449F1CEE809F00DE4E5B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			children = (
 				21D773051CEFF8F8006DAD43 /* Parent.storyboard */,
 				21D7730A1CEFFC10006DAD43 /* ChildListTVC.swift */,
+				2150CBD21CFFBBBE00EA4CC2 /* TestHistoryTVC.swift */,
+				2150CBD41CFFC0FC00EA4CC2 /* TestDetailsViewController.swift */,
 			);
 			name = "Parent App";
 			sourceTree = "<group>";
@@ -332,7 +338,9 @@
 				21D773151CF0B786006DAD43 /* Test.swift in Sources */,
 				21D773131CF00D71006DAD43 /* ConfirmParentViewController.swift in Sources */,
 				21D773091CEFFA8F006DAD43 /* Setting.swift in Sources */,
+				2150CBD51CFFC0FC00EA4CC2 /* TestDetailsViewController.swift in Sources */,
 				21BC44A01CEE809F00DE4E5B /* LoginViewController.swift in Sources */,
+				2150CBD31CFFBBBE00EA4CC2 /* TestHistoryTVC.swift in Sources */,
 				21BC449E1CEE809F00DE4E5B /* AppDelegate.swift in Sources */,
 				21BC44B41CEE8FD300DE4E5B /* Constants.swift in Sources */,
 			);

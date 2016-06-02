@@ -89,6 +89,15 @@ class ChildListTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        performSegueWithIdentifier("showTest", sender: indexPath)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showTest" {
+            let dv = segue.destinationViewController as! TestHistoryTVC
+            dv.setting = data![(sender?.row)!]
+        }
     }
     
     

@@ -55,4 +55,29 @@ class KinveyDownloader: NSObject {
         )
     }
     
+    
+    var downloadedTest: [Test]?
+
+    
+    func fetchAllTestForChildWithUserName(childEmail:String) {
+        let query = KCSQuery(onField: CHILDUSERNAMEKEY, withExactMatchForValue: childEmail)
+        let collection = KCSCollection(fromString: "Test", ofClass: Test.self)
+        let store = KCSAppdataStore(collection: collection, options: nil)
+        
+        store.queryWithQuery(
+            query,
+            withCompletionBlock: { (objectsOrNil: [AnyObject]!, errorOrNil: NSError!) -> Void in
+                if errorOrNil == nil {
+                    if objectsOrNil.count > 0 {
+                        self.downloadedTest = objectsOrNil as? [Test]
+                        NSNotificationCenter.defaultCenter().postNotificationName(TESTSDOWNLOADEDNOTIFICATION, object: self)
+                    }
+                } else {
+                    print("No Settings Found")
+                }
+            },
+            withProgressBlock: nil
+        )
+    }
+    
 }

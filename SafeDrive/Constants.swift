@@ -18,7 +18,9 @@ let USERTYPECHILD = "Child User"
 let USERTYPEPARENT = "Parent User"
 
 let LOGINSUCCESSNOTIFICATION = "Logged In"
-let SETTINGSDOWNLOADEDNOTIFICATION = "Logged In"
+let SETTINGSDOWNLOADEDNOTIFICATION = "Settings Downloaded"
+let TESTSDOWNLOADEDNOTIFICATION = "Test Downloaded"
+
 
 //Settings Class
 let CHILDUSERNAMEKEY = "Child User Name"

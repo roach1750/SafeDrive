@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -74,10 +76,97 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ha9-xy-nv7" kind="show" identifier="showTest" id="5cz-8P-veV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zmm-Xm-FVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1298" y="86"/>
+        </scene>
+        <!--Test HistoryTVC-->
+        <scene sceneID="zBa-NM-zLg">
+            <objects>
+                <tableViewController id="ha9-xy-nv7" customClass="TestHistoryTVC" customModule="SafeDrive" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gn5-cb-D5b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="test" id="XYU-IK-Drb">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XYU-IK-Drb" id="Ffh-Vg-3OK">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ha9-xy-nv7" id="ltv-1h-b5g"/>
+                            <outlet property="delegate" destination="ha9-xy-nv7" id="M1v-1N-zZx"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="hs9-rO-ZIW" kind="show" identifier="showTestDetails" id="Yk9-Cw-GM7"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a99-v2-CGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2051" y="86"/>
+        </scene>
+        <!--Test Details View Controller-->
+        <scene sceneID="IIp-18-v3f">
+            <objects>
+                <viewController id="hs9-rO-ZIW" customClass="TestDetailsViewController" customModule="SafeDrive" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jCN-bz-gj9"/>
+                        <viewControllerLayoutGuide type="bottom" id="qej-3r-tYp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uzY-1X-mXM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ah9-9M-e31">
+                                <rect key="frame" x="0.0" y="64" width="600" height="240"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pog-zi-rjo">
+                                <rect key="frame" x="20" y="312" width="560" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BAC Result Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eH5-9d-1HI">
+                                <rect key="frame" x="20" y="340.5" width="560" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ah9-9M-e31" firstAttribute="leading" secondItem="uzY-1X-mXM" secondAttribute="leading" id="1EC-Ms-C74"/>
+                            <constraint firstAttribute="trailing" secondItem="Ah9-9M-e31" secondAttribute="trailing" id="7Mm-GJ-mKQ"/>
+                            <constraint firstItem="Ah9-9M-e31" firstAttribute="top" secondItem="jCN-bz-gj9" secondAttribute="bottom" id="KR2-1a-z7D"/>
+                            <constraint firstItem="Pog-zi-rjo" firstAttribute="leading" secondItem="uzY-1X-mXM" secondAttribute="leadingMargin" id="Kya-id-fZB"/>
+                            <constraint firstItem="eH5-9d-1HI" firstAttribute="height" secondItem="Pog-zi-rjo" secondAttribute="height" id="aoK-Mo-I8x"/>
+                            <constraint firstItem="eH5-9d-1HI" firstAttribute="leading" secondItem="uzY-1X-mXM" secondAttribute="leadingMargin" id="bhv-gN-GQK"/>
+                            <constraint firstItem="Ah9-9M-e31" firstAttribute="height" secondItem="uzY-1X-mXM" secondAttribute="height" multiplier="0.4" id="gjb-m7-vch"/>
+                            <constraint firstItem="Pog-zi-rjo" firstAttribute="trailing" secondItem="uzY-1X-mXM" secondAttribute="trailingMargin" id="t1a-sH-JMJ"/>
+                            <constraint firstItem="eH5-9d-1HI" firstAttribute="top" secondItem="Pog-zi-rjo" secondAttribute="bottom" constant="8" id="tV7-42-sd6"/>
+                            <constraint firstItem="Pog-zi-rjo" firstAttribute="top" secondItem="Ah9-9M-e31" secondAttribute="bottom" constant="8" id="woY-Pd-XpE"/>
+                            <constraint firstItem="eH5-9d-1HI" firstAttribute="trailing" secondItem="uzY-1X-mXM" secondAttribute="trailingMargin" id="ykY-gQ-prS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bacResultLabel" destination="eH5-9d-1HI" id="I8M-Jt-fxr"/>
+                        <outlet property="locationLabel" destination="Pog-zi-rjo" id="R00-gH-ElH"/>
+                        <outlet property="mapView" destination="Ah9-9M-e31" id="bGA-9K-Nhl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rv7-6K-ObB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2834" y="86"/>
         </scene>
     </scenes>
 </document>
