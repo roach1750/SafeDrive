@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2150CBD11CFE65E900EA4CC2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2150CBD01CFE65E900EA4CC2 /* MapKit.framework */; };
 		21BC449E1CEE809F00DE4E5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */; };
 		21BC44A01CEE809F00DE4E5B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC449F1CEE809F00DE4E5B /* LoginViewController.swift */; };
 		21BC44A31CEE809F00DE4E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BC44A11CEE809F00DE4E5B /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		1C47B43701D07B58EC12FEF8 /* Pods-SafeDrive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeDrive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeDrive/Pods-SafeDrive.debug.xcconfig"; sourceTree = "<group>"; };
+		2150CBD01CFE65E900EA4CC2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		21BC449A1CEE809F00DE4E5B /* SafeDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BC449D1CEE809F00DE4E5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21BC449F1CEE809F00DE4E5B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB05D26AEA75B05823163C04 /* Pods_SafeDrive.framework in Frameworks */,
+				2150CBD11CFE65E900EA4CC2 /* MapKit.framework in Frameworks */,
 				21D7731A1CF0CE2E006DAD43 /* libBACtrackSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +76,7 @@
 		20517EDB2C4EAA86D46AE343 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2150CBD01CFE65E900EA4CC2 /* MapKit.framework */,
 				21D773191CF0CE2E006DAD43 /* libBACtrackSDK.a */,
 				21D773161CF0CDEC006DAD43 /* libBACtrackSDK.a */,
 				917300805FA74AFA7ECC93D5 /* Pods_SafeDrive.framework */,
@@ -225,6 +229,11 @@
 				TargetAttributes = {
 					21BC44991CEE809F00DE4E5B = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
+class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
@@ -36,12 +36,15 @@ class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
     
     let kDL = KinveyDownloader()
     
+    var locationManager: CLLocationManager?
+    var currentLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ConfirmParentViewController.reloadData), name: SETTINGSDOWNLOADEDNOTIFICATION, object: nil)
         mBacTrack = BacTrackAPI(delegate: self, andAPIKey: "0a32f2ab7bf144e4905e723347989b")
-        
+        setUpLocationServices()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -76,14 +79,17 @@ class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
     }
     
     @IBAction func takeReadingButtonPressed(sender: UIButton) {
-        
         warmUpView.frame = takeReadingView.frame
         takeReadingView.removeFromSuperview()
         view.addSubview(warmUpView)
         warmUpStatusLabel.text = "Warming Up..."
+        print("Take Reading Button Pressed")
         mBacTrack?.startCountdown()
-        
     }
+    
+
+    
+    
     
     /////////BACTrack Delegate Methods///////////////
     
@@ -107,6 +113,7 @@ class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
     }
     
     func BacTrackStart() {
+        firstTimeOnCountDown = true
         startBlowingView.frame = warmUpView.frame
         warmUpView.removeFromSuperview()
         view.addSubview(startBlowingView)
@@ -130,7 +137,79 @@ class ConfirmParentViewController: UIViewController, BacTrackAPIDelegate {
         analyzingView.removeFromSuperview()
         view.addSubview(testCompleteView)
         testCompleteStatusLabel.text = String(bac)
+        //Why is this called twice?
+        uploadTestToParent(bac)
+        print("uploading test result")
     }
+    
+    
+    ////////Test Complete
+    
+    func uploadTestToParent(bac:CGFloat){
+        let testToUpload = Test()
+        testToUpload.bacResult = NSNumber(double: Double(bac))
+        testToUpload.location = currentLocation
+        if bac == 0 {
+            testToUpload.pass = NSNumber(bool: true)
+        }
+        else {
+            testToUpload.pass = NSNumber(bool: false)
+        }
+        testToUpload.childUserName = KCSUser.activeUser().username
+        testToUpload.childFirstName = KCSUser.activeUser().givenName
+        testToUpload.childLastName = KCSUser.activeUser().surname
+        let setting = kDL.downloadedSettings![0]
+        testToUpload.parentUserName = setting.parentUserName
+        
+        let kUP = KinveyUploader()
+        kUP.uploadTest(testToUpload)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /////////Location Methods////////////////////////
+    func setUpLocationServices(){
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager?.requestLocation()
+        }
+        else {
+            locationManager?.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        locationManager?.requestLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Found Location!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print(locations[0])
+        currentLocation = locations[0]
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("ERROR: \(error)")
+    }
+    
+    
     
     var circleAnimationLayer = CAShapeLayer()
     

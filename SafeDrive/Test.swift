@@ -16,7 +16,7 @@ class Test: NSObject {
     var childLastName: String?
     var parentUserName: String?
     var location: CLLocation?
-    var passOrFail: NSNumber?
+    var pass: NSNumber?
     var bacResult: NSNumber?
     var metadata: KCSMetadata?
     
@@ -28,7 +28,7 @@ class Test: NSObject {
             "childLastName" : CHILDLASTNAMEKEY,
             "parentUserName" : PARENTUSERNAMEKEY,
             "location" : TESTLOCATIONKEY,
-            "passOrFail" : TESTPASSORFAIL,
+            "pass" : TESTPASSORFAIL,
             "bacResult" : TESTBACRESULT,
             "metadata" : KCSEntityKeyMetadata
         ]

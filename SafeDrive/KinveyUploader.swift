@@ -55,6 +55,24 @@ class KinveyUploader: NSObject {
         
     }
     
+    func uploadTest(test:Test) {
+        let collection = KCSCollection(fromString: "Test", ofClass: Test.self)
+        let store = KCSAppdataStore(collection: collection, options: nil)
+        
+        store.saveObject(
+            test,
+            withCompletionBlock: { (objectsOrNil: [AnyObject]!, errorOrNil: NSError!) -> Void in
+                if errorOrNil != nil {
+                    print("Save failed, with error: %@", errorOrNil.localizedFailureReason)
+                } else {
+                    print("Successfully saved test (id='%@').", (objectsOrNil[0] as! NSObject).kinveyObjectId())
+                }
+            },
+            withProgressBlock: nil
+        )
+        
+    }
+    
     
     
     
